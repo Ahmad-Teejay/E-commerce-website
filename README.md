@@ -78,6 +78,10 @@ src/
 
 ![Naturèlle Shopping Cart](./src/assets/cart.png)
 
+### Checkout Page
+
+![Naturèlle Shopping Cart](./src/assets/checkout.png)
+
 ## 🚀 Getting Started
 
 Clone the repository:
