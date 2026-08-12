@@ -66,7 +66,7 @@ function Cart() {
               onClick={() => increaseQuantity(item.product.id)}> + </button>
               </div>
               <button 
-              className='p-3 text-green-700 cursor-pointer hover:underline mt-3 font-bold'
+              className='p-3 text-green-700 cursor-pointer mt-3 font-bold'
               onClick={() => removeFromCart(item.product.id)}>Remove</button>
             </div>
           ))
@@ -110,7 +110,9 @@ function Cart() {
 
           </div>
 
-          <button className="w-full mt-6 bg-green-700 text-white py-3 rounded-lg font-semibold hover:bg-green-800 transition">
+          <button 
+          onClick={() => navigate('/checkout')}
+          className="w-full mt-6 bg-green-700 text-white py-3 rounded-lg font-semibold hover:bg-green-800 transition">
             Checkout
           </button>
 

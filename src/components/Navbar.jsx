@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import logo from "../assets/logo.png";
 import { NavLink } from 'react-router-dom';
-import { ShoppingCart, Search, ArrowRight, Menu, X } from "lucide-react";
+import { ShoppingCart, Search, ArrowRight, Menu, X,} from "lucide-react";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -65,6 +65,15 @@ function Navbar() {
         <ShoppingCart className="cursor-pointer" size={21} />
       </li>
       </NavLink>
+      <NavLink to="checkout"
+      className={({isActive}) =>
+        isActive ? "text-orange-500" : "text-gray-700"
+    }
+      >
+        <li className="cursor-pointer text-gray-700 transition hover:text-black flex gap-3">
+        Checkout
+      </li>
+      </NavLink>
 
     </ul>
     <button
@@ -106,6 +115,14 @@ function Navbar() {
        className="block rounded-md p-3 hover:bg-green-700 hover:text-white"
        >
          Cart
+      </NavLink>
+    </li>
+    <li>
+      <NavLink
+       to="chekout"
+       className="block rounded-md p-3 hover:bg-green-700 hover:text-white"
+       >
+         Checkout
       </NavLink>
     </li>
     <li>

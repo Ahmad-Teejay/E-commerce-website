@@ -56,7 +56,7 @@ const MotionWhatsapp = motion.create(FaWhatsapp);
                             <ul className="text-gray-500 font-medium">
                                 <li className="mb-4  text-white">
 
-                                     <Link to="/" className="hover:underline  text-white">
+                                     <Link to="/about" className="hover:underline  text-white">
                                        About Us
                                     </Link>
                                 </li>

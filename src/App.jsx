@@ -14,6 +14,7 @@ import About from "./pages/About";
 import Notfound from "./components/Notfound";
 import Error from "./components/Error";
 import Contact from "./pages/Contact";
+import Checkout from "./pages/Checkout";
 
 function App() {
   const router = createBrowserRouter(
@@ -36,9 +37,9 @@ function App() {
           loader={productLoader}
          
         />
-       <Route path="contact" element={<Contact />}/>
+        <Route path="contact" element={<Contact />}/>
         <Route path="cart" element={<Cart />} />
-
+        <Route path="checkout" element={<Checkout />} />
         <Route path="about" element={<About />} />
 
         <Route path="*" element={<Notfound />} />
