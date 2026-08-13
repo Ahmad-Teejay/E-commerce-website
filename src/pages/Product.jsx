@@ -51,12 +51,12 @@ function Product() {
                 </span>
               </div>
 
-              <p className="text-3xl font-bold text-green-700 mt-6">
-                ${data.price}
-              </p>
-              <p className="text-gray-600 leading-7 mt-6">
-                {data.description}
-              </p>
+                <p className="text-3xl font-bold text-green-700 mt-6">
+                  ${data.price}
+                </p>
+                <p className="text-gray-600 leading-7 mt-6">
+                  {data.description}
+                </p>
 
               <button 
               onClick={() => navigate('/cart')}
