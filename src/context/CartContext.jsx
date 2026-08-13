@@ -7,7 +7,8 @@ export const CartContext = createContext({
 
  export const  CartContextProvider = ({children}) => {
      const [cart, setCart] = useState([])
-     
+     const [message, setMessage] = useState("")
+
      useEffect(() => {
         localStorage.setItem("cart", JSON.stringify(cart))
      },[cart])
@@ -47,6 +48,11 @@ export const CartContext = createContext({
 
          setCart(newCart)
        }
+       setMessage("Product added successfully!")
+       
+       setTimeout(() => {
+        setMessage("")
+       }, 2000);
      }
 
      function increaseQuantity(productId){
@@ -113,6 +119,7 @@ export const CartContext = createContext({
                                     shipping,
                                     discount,
                                     total,
+                                    message,
                                     setCart, 
                                     addToCart, 
                                     increaseQuantity, 
