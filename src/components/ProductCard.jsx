@@ -7,9 +7,14 @@ import useCart from '../context/CartContext';
 
 function ProductCard({product}) {
     
-    const {addToCart} = useCart()
+    const {addToCart, message} = useCart()
   return (
     <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300 max-w-sm mt-5 mb-5">
+        {message && (
+          <div className="fixed right-5 top-5 z-50 rounded-lg bg-green-500 px-5 py-3 text-white shadow-lg">
+               {message}
+           </div>
+        )}
         <div>
             <img
              src={product.thumbnail}
