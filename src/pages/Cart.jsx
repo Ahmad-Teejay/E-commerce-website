@@ -46,7 +46,7 @@ function Cart() {
            >Looks like you haven't added anything yet.</p>
            <button
            onClick={() => navigate('/products')}
-           className='p-2 text-white bg-green-700 rounded-md shadow-lg cursor-pointer hover:bg-green-800 mt-5'
+           className='p-2 text-white bg-green-700 rounded-md shadow-lg cursor-pointer hover:bg-green-800 mt-5 font-bold'
            >Continue Shopping</button>
            </>
           ) : (
