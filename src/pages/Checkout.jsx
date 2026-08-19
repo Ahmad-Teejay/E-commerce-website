@@ -3,7 +3,7 @@ import "./Checkout.css";
 import useCart from '../context/CartContext';
 
 function Checkout() {
- const {cart,subTotal,shipping,discount,total} = useCart()
+ const {state,subTotal,shipping,discount,total} = useCart()
     const [errors, setErrors] = useState({})
     const [formData, setFormData] = useState({
         name: "",
@@ -164,18 +164,18 @@ function Checkout() {
 
   {/* Cart Items */}
   <div className="summary-items">
-    {cart.map((item) => (
-      <div className="summary-item" key={item.product.id}>
+    {state.items.map((item) => (
+      <div className="summary-item" key={item.id}>
 
         <div className="summary-item-info">
           <img
-            src={item.product.thumbnail}
-            alt={item.product.title}
+            src={item.thumbnail}
+            alt={item.title}
           />
 
           <div>
             <p className="summary-item-title">
-              {item.product.title}
+              {item.title}
             </p>
 
             <p className="summary-item-quantity">
@@ -185,7 +185,7 @@ function Checkout() {
         </div>
 
         <span className="summary-item-price">
-          ${(item.product.price * item.quantity).toFixed(2)}
+          ${(item.price * item.quantity).toFixed(2)}
         </span>
 
       </div>

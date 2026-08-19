@@ -63,7 +63,7 @@ function Products() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7 p-5">
             {filteredProducts.length === 0 ? 
               (
-               <div className="flex min-h-[300px] flex-col items-center justify-center text-center">
+               <div className="flex min-h-\[300px\] flex-col items-center justify-center text-center">
                  <h2 className="text-2xl font-semibold text-gray-800">
                         No products found
                  </h2>

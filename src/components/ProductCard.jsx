@@ -1,20 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Products from '../pages/Products'
 import { ShoppingCart, Search, ArrowRight } from "lucide-react";
 import { useNavigate } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import useCart from '../context/CartContext';
+import { div } from 'motion/react-client';
 
 function ProductCard({product}) {
+    const { dispatch } = useCart()
+     const[message, setMessage] = useState("")
+     const handleAddToCart = () => {
+       dispatch({type: "ADD_TO_CART", payload: product })
+        setMessage("product added!")  
+        setTimeout(() => {
+            setMessage("")
+        }, 2000);
+     }
     
-    const {addToCart, message} = useCart()
+
   return (
-    <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300 max-w-sm mt-5 mb-5">
-        {message && (
-          <div className="fixed right-5 top-5 z-50 rounded-lg bg-green-500 px-5 py-3 text-white shadow-lg">
-               {message}
-           </div>
-        )}
+      <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300 max-w-sm mt-5 mb-5">
+            {message && (
+                <p className="fixed top-5 right-5 z-50 bg-green-700 text-white px-4 py-2 rounded-md shadow-lg font-semibold text-sm">
+                    {message}
+                </p>
+            )}
         <div>
             <img
              src={product.thumbnail}
@@ -41,7 +51,7 @@ function ProductCard({product}) {
                View Details
             </NavLink>
             <button
-            onClick={() => addToCart(product)}
+            onClick={handleAddToCart}
             className='bg-green-700 text-white rounded-md shadow-lg p-3 flex gap-3 mt-5 hover:bg-green-800 cursor-pointer mb-5 transition'>
                 add to cart
                 <ShoppingCart className="cursor-pointer" size={21} />

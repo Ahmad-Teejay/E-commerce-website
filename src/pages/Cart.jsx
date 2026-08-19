@@ -1,12 +1,9 @@
 import React from 'react'
-import useCart from '../context/CartContext'
-import { div } from 'motion/react-client'
-import { productsLoader } from './Products'
-import { h2 } from 'motion/react-m'
+import  useCart  from '../context/CartContext'
 import { useNavigate } from 'react-router-dom'
 
 function Cart() {
-  const {cart,increaseQuantity,decreaseQuantity,removeFromCart,subTotal,shipping,discount,total} = useCart()
+  const {state,dispatch,subTotal,discount,shipping,total} = useCart()
  const navigate = useNavigate()
   
   return (
@@ -36,7 +33,7 @@ function Cart() {
 
           {/* Product item goes here */}
           
-          {cart.length === 0 ? (
+          {state.items.length === 0 ? (
            <>
            <h2
            className=' text-gray-700 font-serif'
@@ -50,26 +47,26 @@ function Cart() {
            >Continue Shopping</button>
            </>
           ) : (
-            cart.map((item) => (
-            <div key={item.product.id}>
-              <p>{item.product.category}</p>
-              <h2>{item.product.title}</h2>
-              <p>{item.product.price}</p>
-              <img src={item.product.thumbnail} alt="" width={50} />
+            state.items.map((item) => (  
+            <div key={item.id}>
+              <p>{item.category}</p>
+              <h2>{item.title}</h2>
+              <p>{item.price}</p>
+              <img src={item.thumbnail} alt="" width={50} />
               <div className='flex justify-center gap-5'>
               <button 
               className='p-3 text-white rounded-md shadow-lg bg-green-700 cursor-pointer hover:bg-green-800'
-              onClick={() => decreaseQuantity(item.product.id)}> - </button>
+              onClick={() => dispatch({type: "DECREASE_QUANTITY", payload: item})}> - </button>
               <span className='items-center'>{item.quantity}</span>
               <button 
               className='p-3 text-white rounded-md shadow-lg bg-green-700 cursor-pointer hover:bg-green-800'
-              onClick={() => increaseQuantity(item.product.id)}> + </button>
+              onClick={() => dispatch({type: "INCREASE_QUANTITY", payload: item})}> + </button>
               </div>
               <button 
               className='p-3 text-green-700 cursor-pointer mt-3 font-bold'
-              onClick={() => removeFromCart(item.product.id)}>Remove</button>
+              onClick={() => dispatch({type: "REMOVE_FROM_CART", payload: item})}>Remove</button>
             </div>
-          ))
+            ))
           )}
       
         </div>
